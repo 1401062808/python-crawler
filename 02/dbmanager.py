@@ -9,6 +9,8 @@ class CrawlDatabaseManager:
 
     SERVER_IP = 'localhost'
 
+    PASSWORD = 'zqx701029'
+
     TABLES = {}
     # create new table, using sql
     TABLES['urls'] = (
@@ -28,7 +30,7 @@ class CrawlDatabaseManager:
     def __init__(self, max_num_thread):
         # connect mysql server
         try:
-            cnx = mysql.connector.connect(host=self.SERVER_IP, user='root')
+            cnx = mysql.connector.connect(host=self.SERVER_IP, user='root', password=self.PASSWORD)
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
                 print "Something is wrong with your user name or password"

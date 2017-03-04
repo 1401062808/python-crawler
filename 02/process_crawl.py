@@ -1,3 +1,4 @@
+##encoding=utf-8##
 import urllib2
 from collections import deque
 import json
