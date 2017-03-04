@@ -59,7 +59,7 @@ print '--------------------------------------------'
 print '# attrib and text'
 print '--------------------------------------------'
 for element in tree.xpath(u"//strong[contains(@class, 'J-p-2131674')]"):
-    print element.text
+    print element.text.encode('utf-8')
     print element.attrib
 print ''
 
@@ -69,6 +69,6 @@ print '--------------------------------------------'
 print '# loading content to BeautifulSoup'
 soup = BeautifulSoup(content, 'html.parser')
 print '# loaded, show result'
-print soup.find(attrs={'class':'J-p-2131674'}).text
+print soup.find(attrs={'class':'J-p-2131674'}).text.encode('UTF-8')
 
 f.close()
