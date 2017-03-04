@@ -1,7 +1,7 @@
 import mysql.connector
 import hashlib
 from mysql.connector import errorcode
-
+from mysql.connector import pooling
 
 class CrawlDatabaseManager:
 
@@ -62,8 +62,9 @@ class CrawlDatabaseManager:
             "database": self.DB_NAME,
             "user":     "root",
             "host":     self.SERVER_IP,
+	    "password": self.PASSWORD,
         }
-        self.cnxpool = mysql.connector.pooling.MySQLConnectionPool(pool_name="mypool",
+        self.cnxpool = pooling.MySQLConnectionPool(pool_name="mypool",
                                                           pool_size=max_num_thread,
                                                           **dbconfig)
 
